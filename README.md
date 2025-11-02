@@ -9,6 +9,10 @@ Durante el desarrollo de este proyecto ASP.NET Core, se pudo aprender:
 - Cómo agregar inicio de sesión, registro y seguridad.
 - Cómo desplegar la aplicación en la web.
 
+Nota - datos del administrador:
+- Usuario: admin@todo.local
+- Contraseña: NotSecure123!!
+
 # UnitTests
 Se trata de una pueba unitaria. Verifica que la lógica de negocios del método "AddItemAsync()" no haya cambiado (incluso si la implementación interna del método cambia).
 
