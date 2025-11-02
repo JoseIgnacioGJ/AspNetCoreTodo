@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AspNetCoreTodo.Models
+
+<!-- Esta vista parcial agregará un elemento a la barra de navegación en el diseño -->
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
+
+<!-- Primero usa el SignInManager para determinar rápidamente si el usuario está conectado. 
+     Si no lo está, el resto del código de vista se puede omitir. -->
+@if (signInManager.IsSignedIn(User))
+{
+<!-- Si hay hay un usuario conectado, el UserManager se usa para buscar sus 
+     detalles y realizar una verificación de autorización con IsInRoleAsync(). -->
+    var currentUser = await userManager.GetUserAsync(User);
+    var isAdmin = currentUser != null
+                && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+
+    <!-- Si todas las comprobaciones son correctas y el usuario es un administrador, 
+         se agrega el enlace "Administrar usuarios" a la barra de navegación.-->
+    if (isAdmin)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-controller="ManageUsers"
+                   asp-action="Index">
+                    Manage Users
+                </a>
+            </li>
+        </ul>
+    }
+}

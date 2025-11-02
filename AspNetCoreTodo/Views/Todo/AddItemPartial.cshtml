@@ -1,0 +1,13 @@
+﻿@model TodoItem
+
+<!-- Para mantener las cosas separadas y organizadas, se crea un formulario como una 
+     vista parcial. Cuando un usuario presiona el botón Add sobre el formulario, el
+     navegador construirá un solicitud POST hacia /Todo/AddItem en la aplicación. -->
+
+<!-- El action es remplazado con una ruta real hacia la acción AddItem. -->
+<form action="/Todo/AddItem" method="POST">
+    @Html.AntiForgeryToken()
+    <label asp-for="Title">Add a new item:</label>
+    <input asp-for="Title">
+    <button type="submit">Add</button>
+</form>

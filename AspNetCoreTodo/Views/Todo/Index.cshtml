@@ -1,0 +1,46 @@
+﻿@model TodoViewModel
+@using Humanizer
+@{
+    ViewData["Title"] = "Manage your todo list";
+}
+<div class="panel panel-default todo-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+      <table class="table table-hover">
+        <!-- La cabecera de la tabla. -->
+        <thead>
+            <tr>
+                <td>&#x2714;</td>
+                <td>Item</td>
+                <td>Due</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        <!-- Recoge los items del modelo y los muestra en el contenido de la tabla. -->
+        @foreach (var item in Model.Items)
+        {
+
+            <tr>
+                <td>
+                    <form asp-action="MarkDone" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="checkbox" class="done-checkbox">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <td>@item.Title</td>
+                <td>@item.DueAt?.Humanize()</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <!-- Este es un lugar asignado para el formulario para agregar elementos. -->
+    <div class="panel-footer add-item-form">
+        <!-- TODO: Add item form -->
+        @await Html.PartialAsync("AddItemPartial", new TodoItem())
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
