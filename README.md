@@ -7,8 +7,7 @@ Durante el desarrollo de este proyecto ASP.NET Core, se pudo aprender:
 - Qué es la inyección de dependencias y porque es tan útil.
 - Cómo leer y escribir datos a una base de datos.
 - Cómo agregar inicio de sesión, registro y seguridad.
-- Cómo desplegar la aplicación en la web.
-
+  
 Nota - datos del administrador:
 - Usuario: admin@todo.local
 - Contraseña: NotSecure123!!
