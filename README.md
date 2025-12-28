@@ -13,7 +13,7 @@ Nota - datos del administrador:
 - Contraseña: NotSecure123!!
 
 # UnitTests
-Se trata de una pueba unitaria. Verifica que la lógica de negocios del método "AddItemAsync()" no haya cambiado (incluso si la implementación interna del método cambia).
+Se trata de una prueba unitaria. Verifica que la lógica de negocios del método "AddItemAsync()" no haya cambiado (incluso si la implementación interna del método cambia).
 
 # IntegrationTests
-Se trata de una pueba de integración. Realiza una solicitud anónima (sin iniciar sesión) a la ruta "/todo" y verifica que el navegador se redirige a la página de inicio de sesión.
+Se trata de una prueba de integración. Realiza una solicitud anónima (sin iniciar sesión) a la ruta "/todo" y verifica que el navegador se redirige a la página de inicio de sesión.
